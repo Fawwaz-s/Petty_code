@@ -104,6 +104,12 @@ if pep =="yes":
         bill+=3
     elif size=="mid":
         bill+=4
+
+def jack():
+    x = int(input("whats number:")
+    print("number squared is",square(x))
+def square(n):
+    return n*n
     elif size=="large":
         bill+=5.5
 else:
