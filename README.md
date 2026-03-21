@@ -67,3 +67,44 @@ def calcule():
        
 calcule()
 
+---dictionary--
+
+jers = {
+    'name':'Fawaz',
+    'song'  :'Faded',
+    'movie' :'Inception',
+    'food'  :'Pizza',
+}
+
+print(nams['food']) # will print pizza
+
+#nams['gf'] = 'Sana' # will add new entry into dictionary
+
+jers = {}
+print (vers) # will print an empty line 
+#nams['gf'] ='We shall'
+#print(nams['gf']) #for replacing an entry
+
+for key in jers:
+    print(key) # this will just print the keys from jers (name, song,...)
+    print(jers[key]) # will print the values (fawaz, song...)
+
+---------
+to use for working with dictionanries
+jers.key()
+jers.values()
+jers.items()
+
+nested dictionaries and list 
+travel = {
+    'france' :{
+        'cities' : ["Paris", "Marseille", "Lyon"]
+        },
+    'italy' : {
+        "cities" : ["Rome", "Milan", "Venice",['Florence', 'Naples']]},
+    'spain' : {
+        "cities" : ["Madrid", "Barcelona", "Valencia"]
+        },
+    }
+
+print(travel["italy"]['cities'][3][0]) #Florence
