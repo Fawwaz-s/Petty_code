@@ -108,3 +108,23 @@ travel = {
     }
 
 print(travel["italy"]['cities'][3][0]) #Florence
+
+----an aunctioneer---
+oruko = input("Enter your name: ")
+bid = input("Enter your bid: $")
+
+dico = { oruko: bid }
+
+while True:
+    a = input("Are there any other bidders? Type 'yes' or 'no': ").lower()
+    if a == "yes":
+        oruko = input("Enter a name: ")
+        bid = input("Enter your bid: $")
+        dico[oruko] = bid
+    else:
+        if a == "no":
+            break
+for key in dico:
+    if dico[key] == max(dico.values()):
+        print(f"The winner is {key} with a bid of ${dico[key]}")
+print(dico)
