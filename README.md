@@ -87,7 +87,7 @@ print (vers) # will print an empty line
 
 for key in jers:
     print(key) # this will just print the keys from jers (name, song,...)
-    print(jers[key]) # will print the values (fawaz, song...)
+    print(jers[key]) # will print the values (fawaz, faded...)
 
 ---------
 to use for working with dictionanries
@@ -128,3 +128,69 @@ for key in dico:
     if dico[key] == max(dico.values()):
         print(f"The winner is {key} with a bid of ${dico[key]}")
 print(dico)
+
+------calculator with dictionary----
+def add(a, b):
+    return a + b
+def subtract(a, b):
+    return a - b
+def multiply(a, b):
+    return a * b
+def divide(a, b):
+    return a / b
+
+dick = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide
+}
+
+num1 =int(input("Enter first number: "))
+num2 =int(input("Enter second number: "))
+operation = input("Enter operation (+, -, *, /): ")
+ab = True
+if operation == "+":
+    print(dick["+"](num1, num2))
+elif operation == "-":
+    print(dick["-"](num1, num2))
+elif operation == "*":
+    print(dick["*"](num1, num2))
+elif operation == "/":
+    print(dick["/"](num1, num2))
+answer = dick[operation](num1, num2)
+print(f'{num1}{operation}{num2}= {dick[operation](num1, num2)}')
+    
+ab = True
+while ab == True:
+    pen = input('Do you want to continue with your answer? \n y or n or c to start again ?').lower()
+    if pen == 'c':
+        operation = (input("Enter operation (+, -, *, /): "))
+        num3 = int(input("Enter third number: "))
+        if operation == "+":    
+            print(dick["+"](answer, num3))
+        elif operation == "-":
+            print(dick["-"](answer, num3))
+        elif operation == "*":
+            print(dick["*"](answer, num3))
+        elif operation == "/":
+            print(dick["/"](answer, num3))
+        print(f'{answer}{operation}{num3}= {dick[operation](answer, num3)}')
+        
+    elif pen == 'y':
+        num1 =int(input("Enter first number: "))
+        num2 =int(input("Enter second number: "))
+        operation = input("Enter operation (+, -, *, /): ")
+        if operation == "+":    
+            print(dick["+"](num1, num2))
+        elif operation == "-":
+            print(dick["-"](num1, num2))
+        elif operation == "*":
+            print(dick["*"](num1, num2))
+        elif operation == "/":
+            print(dick["/"](num1, num2))
+        print(f'{num1}{operation}{num2}= {dick[operation](num1, num2)}')
+    else:
+        if pen == 'n':
+            ab = False
+            print('welcome')
