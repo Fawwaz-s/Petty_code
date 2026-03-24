@@ -194,3 +194,103 @@ while ab == True:
         if pen == 'n':
             ab = False
             print('welcome')
+---------------------------------------------------------------------------
+GUESSING GAME WITH LIVES
+import random
+
+def choose():
+    jap = input('Choose difficulty: Easy, Medium, Hard: ').capitalize()
+    
+    if jap == "Easy":
+        number = random.randint(1, 100)
+        lives = 10
+        guess = False
+        
+        print(f"Difficulty set to Easy. You have {lives} lives.")
+
+        while guess != True:
+            storm = int(input('Enter a number between 1 and 100: '))
+
+            if storm == number:
+                print("Congratulations! You guessed the number.")
+                guess = True
+                
+            elif storm > number:
+                lives -= 1
+                print("Wrong!! Your guess is too high.")
+                if lives > 0:
+                    print(f"You have {lives} lives remaining.")
+            else:
+                lives -= 1
+                print("Wrong!! Your guess is too low.")
+                if lives > 0:
+                    print(f"You have {lives} lives remaining.")
+
+        if lives == 0:
+            print(f"Game Over! The number was {number}.")
+            
+    elif jap == "Medium":
+        number = random.randint(1, 100)
+        lives = 5
+        guess = False
+        
+        print(f"Difficulty set to Medium. You have {lives} lives.")
+
+        while guess != True:
+            storm = int(input('Enter a number between 1 and 100: '))
+
+            if storm == number:
+                print("Congratulations! You guessed the number.")
+                guess = True
+                
+            elif storm > number:
+                lives -= 1
+                print("Wrong!! Your guess is too high.")
+                if lives > 0:
+                    print(f"You have {lives} lives remaining.")
+            else:
+                lives -= 1
+                print("Wrong!! Your guess is too low.")
+                if lives > 0:
+                    print(f"You have {lives} lives remaining.")
+
+        if lives == 0:
+            print(f"Game Over! The number was {number}.")
+            
+    elif jap == "Hard":
+        number = random.randint(1, 100)
+        lives = 3
+        guess = False
+        
+        print(f"Difficulty set to Hard. You have {lives} lives.")
+
+        while guess != True:
+            storm = int(input('Enter a number between 1 and 100: '))
+
+            if storm == number:
+                print("Congratulations! You guessed the number.")
+                guess = True
+                
+            elif storm > number:
+                lives -= 1
+                print("Wrong!! Your guess is too high.")
+                if lives > 0:
+                    print(f"You have {lives} lives remaining.")
+            else:
+                lives -= 1
+                print("Wrong!! Your guess is too low.")
+                if lives > 0:
+                    print(f"You have {lives} lives remaining.")
+
+        if lives == 0:
+            print(f"Game Over! The number was {number}.")
+             
+    else:
+       print("Invalid difficulty level")
+                
+choose()
+   
+        
+    
+       
+
