@@ -289,7 +289,110 @@ def choose():
        print("Invalid difficulty level")
                 
 choose()
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+import random
+
+data = [
+    {
+        'name': 'Bukayo Saka',
+        'google_searches': 920000,
+        'occupation': 'footballer'
+    },
+    {
+        'name': 'Lionel Messi',
+        'google_searches': 1850000,
+        'occupation': 'footballer'
+    },
+    {
+        'name': 'Cristiano Ronaldo',
+        'google_searches': 3200000,
+        'occupation': 'footballer'
+    },
+    {
+        'name': 'Taylor Swift',
+        'google_searches': 4500000,
+        'occupation': 'singer'
+    },
+    {
+        'name': 'MrBeast',
+        'google_searches': 2800000,
+        'occupation': 'youtuber'
+    },
+    {
+        'name': 'Kylian Mbappé',
+        'google_searches': 1100000,
+        'occupation': 'footballer'
+    },
+    {
+        'name': 'Selena Gomez',
+        'google_searches': 2100000,
+        'occupation': 'singer & actress'
+    },
+    {
+        'name': 'Elon Musk',
+        'google_searches': 1650000,
+        'occupation': 'businessman'
+    },
+    {
+        'name': 'Virat Kohli',
+        'google_searches': 1350000,
+        'occupation': 'cricketer'
+    },
+    {
+        'name': 'Zendaya',
+        'google_searches': 1900000,
+        'occupation': 'actress'
+    }
+]
+
+def topgame():
+
+    
+    guess = False
+    counter = 0
+    
+    
+            
+    while guess != True:
+            item1 = random.choice(data) 
+            item2 = random.choice(data)
+    
+            oruko = item1['name']
+            oruko2 = item2['name']
+    
+            meta = item1['google_searches']
+            meta2 = item2['google_searches']
+            
+            staff = input(f"Which one has more google searches? {oruko} or {oruko2} ? ").title()
+            
+            if staff != oruko and staff != oruko2:
+                print('Invalid input! Please choose either of the two options.')
+                continue
+            
+            if (meta > meta2) and (staff == oruko):
+                print('Correct!')
+                counter += 1
+           
+            elif (meta < meta2) and (staff == oruko2):
+                print('Correct!')
+                counter += 1
+           
+            elif (meta > meta2) and (staff == oruko2):
+                print('Wrong!')
+                print(f'Your final score is {counter}')
+                guess = False
+            
+            elif (meta < meta2) and (staff == oruko):
+                print('Wrong!')
+                print(f'Your final score is {counter}')
+                guess = False
+       
+            
+    
    
+topgame()
         
     
        
