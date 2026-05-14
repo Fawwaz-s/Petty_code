@@ -1,0 +1,90 @@
+numbers = [1, 2, 3, 4, 5]
+new = [n*2 for n in numbers]
+print(new) # will return [2,6,8...]
+----
+name = "Fawwaz"
+stay = [i for i in name]
+print(stay) #same for alphabet ["f","a"...]
+
+wes = [n for n in range(1, 101) if n % 9 == 0]
+print(wes) -- will numbers divisible by 9
+-----
+
+names = ["Alice", "Bob", "Charlie", "David", "Eve"]
+pay = [n for n in names if n.startswith('A')]
+print(pay) - will return Alice
+--- 
+
+names = ["Alice", "Bob", "Charlie", "David", "Eve", "Ewatomi"]
+pay = [n.upper() for n in names  if n.startswith(('E', 'A')) ]
+print(pay)
+---
+list_of_strings = ['9', '0', '32', '8', '2', '8', '64', '29', '42', '99']
+numbers = [int(x) for x in list_of_strings] int(list of strings) wont work because its a list
+result = [n for n in numbers if n%2 == 0]
+print(result)
+///////
+#####for dictionaries
+
+import random
+names = ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Heidi', 'Ivan', 'Judy']
+score = {student: random.randint(0, 100) for student in names}
+print(score) #creates a new dic
+
+----
+import random
+names = ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Heidi', 'Ivan', 'Judy']
+score = {x: random.randint(0, 100) for x in names}
+dic = {key :score[key] for key in score if score[key] >= 60} #method1
+dic = {key:value for key, value in score.items() if value >= 60} #method2
+print(dic) #creates a new dict from old dict
+print(score) lists old dict
+
+//////
+sentence = "  What is the Airspeed Velocity of an Unladen Swallow?  "
+
+result = {word: len(word) for word in sentence.strip().lower().replace('?', '').split()}
+print(result)
+# {'what': 4, 'is': 2, 'the': 3, 'airspeed': 8, 'velocity': 8, 'of': 2, 'an': 2, 'unladen': 7, 'swallow': 7}
+----shows other commands that can be used in this context
+
+stud_dic = {
+    "student" : ["Angel", "Shane", "Seamus", "Rajesh"],
+    "score" : [80, 50, 34, 71]
+}
+for (key,value) in stud_dic:
+print (key) #this prints students
+print(value) prints score
+\\\\\
+stud_dic = {
+    "student": ["Angel", "Shane", "Seamus", "Rajesh"],
+    "score": [80, 50, 34, 71]
+}
+
+way = {
+    student: score
+    for student, score in zip(stud_dic["student"], stud_dic["score"])
+    if score > 50
+} ##zip method
+print(way)
+-----------
+people = {
+    "person1": {
+        "name": "Sofia",
+        "age": 28,
+        "country": "Brazil",
+        "sex": "Female",
+        "language": "Portuguese"
+    },
+    "person2": {
+        "name": "Marcus",
+        "age": 34,
+        "country": "Germany",
+        "sex": "Male",
+        "language": "German"
+    }
+}
+
+stay ={key: value  for key, value in zip((people.keys()), (people.values())) if value["age"] > 30} #method1
+stay = {key:value for (key, value) in people.items() if value["sex"]== "Male"} #method2
+print(stay)
