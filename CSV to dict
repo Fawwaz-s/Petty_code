@@ -1,1 +1,10 @@
+import csv
+import random
 
+with open (rf"C:\Users\33753\OneDrive\Documents\26Pro\basic100\ede.csv", "r") as fu:
+    data = csv.DictReader(fu)
+    dater = list(data)
+sphinx = random.choice(dater) # for dict (dater['english world']) but because the original doc was a list its like below.
+web = sphinx["English word"].lower() --this is what i mean
+were  = sphinx["French word"].lower()
+print (web, were)
