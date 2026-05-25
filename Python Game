@@ -1,0 +1,183 @@
+##REGIS WORLD GAME###
+
+def jump():
+    turn_left()
+    move()
+    turn_left()
+    turn_left()
+    turn_left()
+    move()
+    turn_left()
+    turn_left()
+    turn_left()
+    move()
+    turn_left()
+
+
+def go():
+    move()
+    jump()
+
+##Hurdles 1
+flag =6
+while flag > 0:
+    go()
+    flag -=1
+
+##Hurdles 2
+while not at_goal():
+    go()
+
+##Hurdles 3
+while not at_goal():
+    if front_is_clear():
+        move()
+    elif wall_in_front():
+        jump()
+
+#####Hangman####
+import random
+word_list =['aardvark','baboon','camel','abracadabra']
+words = random.choice(word_list)
+print(words)
+print ('_' * len(words))
+#was = ''
+#for pos in range(len(words)):
+    #was += '_'
+#print(was)
+game_over = False
+guessed_letters = []
+lives = 7
+
+stages = [ 
+"""
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+T'AS PERDU
+""",
+"""
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+""",
+"""
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+""",
+"""
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========
+""",
+"""
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+""",
+"""
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+""",
+"""
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+"""
+]
+
+
+while game_over == False:
+    guess = input('Guess a letter:').lower()
+    
+    display = ''
+
+    for letter in words:
+        if guess == letter:
+            display += letter
+            guessed_letters.append(guess)
+            
+                
+        elif letter in guessed_letters:
+            display+=letter
+        else:
+            display += '_'
+            
+    if guess in display:
+        print(f'You have guessed this already {guess}')
+            
+    if guess not in display:
+        lives -=1
+        print(f'you guess wrong bob!you have {lives -1} lives left')
+        
+        if lives ==0:
+            game_over ==True
+            print('You lose')
+    
+                
+                
+    print(display)
+    
+    if '_' not in display:
+        game_over =True
+        print("you win ")
+    
+    print (stages[lives])
+////////
+import csv
+import random
+
+with open (rf"C:\Users\33753\OneDrive\Documents\26Pro\basic100\ede.csv", "r") as fu:
+    data = csv.DictReader(fu)
+    dater = list(data)
+
+def flash_card():
+    randy = False
+    lives = 5
+    while randy is False:
+        sphinx = random.choice(dater)
+        web = sphinx["English word"].lower()
+        were  = sphinx["French word"].lower()
+        print (web)
+        word = input("Traduire cette mot nini:").lower()
+        if word == were:
+            print("c'est bien mon nini")
+        else:
+            print("tu es null")
+            lives -=1
+        if lives == 0:
+            randy is True
+            print('C'est toi qui fais la vaisselle ce soir')
+            break
+            
+flash_card()
